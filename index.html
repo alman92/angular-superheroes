@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="superheroApp">
 <head>
   <meta charset="UTF-8">
   <title>Superhero Phone Book</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+  <script src="app.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-
+<body ng-controller="heroCtrl as vm">
+  <div ng-repeat="superheroes in vm.superheroes">
+  </div>
+  {{ Harambe }}
   <script src="app.js"></script>
 </body>
 </html>
