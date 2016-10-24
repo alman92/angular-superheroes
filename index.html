@@ -8,9 +8,20 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body ng-controller="heroCtrl as vm">
-  <div ng-repeat="superheroes in vm.superheroes">
+  <input type="text" placeholder="Search..." ng-model="searchBox">
+  <div ng-repeat="superhero in vm.superheroes | filter:searchBox">
+    <p ng-class="superhero.classification"> {{ superhero.name }}
+      <button ng-click="showImg = !showImg"></button>
+    </p>
+    <img ng-src="{{superhero.img_url}}" ng-show="showImg">
   </div>
-  {{ Harambe }}
-  <script src="app.js"></script>
+  <div>
+    Name:<input type="text" placeholder="Name" ng-model="vm.newSuperhero.name">
+    Hero/Sidekick:<input type="text" placeholder="Classification" ng-model="vm.newSuperhero.classification">
+    Image:<input type="text" placeholder="Photo URL" ng-model="vm.newSuperhero.img_url">
+    <button ng-click="vm.addSuperhero()">Add Superhero</button>
+  </div>
+    <img ng-src="{{ superhero.img_url }}">
+  </div>
 </body>
 </html>
